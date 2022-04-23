@@ -722,4 +722,15 @@ progress::-moz-progress-value {
     }
 }
 
+/* .xclose {
+    font-size: 20px;
+    position: relative;
+    display: inline;
+    padding: 10px;
+    bottom: 75px;
+    left: 240px;
+    cursor: pointer;
+    
+} */
+
 /*сетка*/
