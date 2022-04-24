@@ -1,41 +1,39 @@
-'use strict'
-
 const modalBtn = document.querySelector('.modal__button');
-const modal = document.querySelector('.modal');
 const courseBtn = document.querySelector('.course__button');
+const modal = document.querySelector('.modal');
+const modalInner = modal.querySelector('.modal__inner');
 
-modalBtn.addEventListener('click', () => {
+function buttonOpen(button) {
+  button.addEventListener('click', () => {
     modal.style.display = 'flex';
-})
+  });
+}
 
-courseBtn.addEventListener('click', () => {
-    modal.style.display = 'flex';
-})
+buttonOpen(modalBtn);
+buttonOpen(courseBtn);
 
 modal.addEventListener('click', (event) => {
-    const modalContent = event.target.closest('.modal__inner');
+  const modalContent = event.target.closest('.modal__inner');
+  if (!modalContent) {
+    modal.style.display = '';
+  }
+});
 
-    if (!modalContent) {
-        modal.style.display = '';
-    }
-})
 
-let xBtn = document.createElement('div');
-xBtn.innerText = 'X';
+modalInner.style.position = 'relative';
+
+const xBtn = document.createElement('div');
+xBtn.innerHTML = '<span class="iconify" data-icon="emojione-monotone:cross-mark"></span>';
+xBtn.style.cssText = `
+  cursor: pointer;
+  font-size: 2rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+`;
 
 modalInner.prepend(xBtn);
 
-xBtn.style.cssText = `
-    font-size:20px; 
-    position:relative; 
-    display:inline; 
-    padding:10px; 
-    bottom:75px; 
-    left:240px; 
-    cursor:pointer;
-`;
-
 xBtn.addEventListener('click', () => {
-    modal.style.display = '';
-})
-
+  modal.style.display = '';
+});
