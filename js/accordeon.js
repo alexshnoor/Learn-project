@@ -1,18 +1,24 @@
-const contents = document.querySelectorAll('.program-line__content');
+const accordeon = () => {
+	const contents = document.querySelectorAll('.program-line__content');
+	const contentsDescr = document.querySelectorAll('.program-line__descr');
 
-contents.forEach((elem) => {
-  const title = elem.querySelector('.program-line__title');
-  const descr = elem.querySelector('.program-line__descr');
+	contents.forEach((elem) => {
+		const title = elem.querySelector('.program-line__title')
+		const descr = elem.querySelector('.program-line__descr')
 
-  title.addEventListener('click', () => {
-    if (descr.classList.contains('active')) {
-      descr.classList.remove('active');
-    } else {
-      const descrs = document.querySelectorAll('.program-line__descr');
-      descrs.forEach((currentDescr) => {
-        currentDescr.classList.remove('active');
-      });
-      descr.classList.add('active');
-    }
-  });
-});
+		descr.style.transition = 'height .3s'
+		descr.style.overflow = 'hidden'
+
+		title.addEventListener('click', () => {
+			contentsDescr.forEach((tab) => {
+				if (tab === descr) {
+					//tab.classList.add('active')
+					tab.style.height = tab.scrollHeight + 'px'
+				} else {
+					tab.style.height = 0
+				}
+			})
+		})
+	})
+}
+accordeon()

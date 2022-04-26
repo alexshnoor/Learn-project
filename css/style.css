@@ -201,7 +201,7 @@ input {
     margin-bottom: 10px;
 }
 
-.course__counter-line, 
+.course__counter-line,
 .course__progress-label {
     color: #FFFFFF40;
 }
@@ -380,10 +380,14 @@ progress::-moz-progress-value {
     background-repeat: no-repeat;
     left: 50%;
     transform: translateX(-50%);
+
+
+
+
 }
 
 .program-line {
-    display: flex;    
+    display: flex;
     justify-content: space-between;
     width: 750px;
 }
